@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This demonstration is created based on Ubuntu 20.04.
+This demonstration is created based on Ubuntu 20.04 with NVIDIA® GPU, but the method using VS Code Dev Container should work on any platforms with NVIDIA® GPU driver, NVIDIA® Container Toolkit, and VS Code installed properly.
 
 ## Prerequisites
 
@@ -32,6 +32,62 @@ This demonstration is created based on Ubuntu 20.04.
    ```shell
    sudo apt-get install -y nvidia-container-toolkit
    ```
+
+In addition, based on which method you adopt, install the following:
+
+#### Using Docker
+
+Docker engine - example of installation commands using Apt (refer to [this](https://docs.docker.com/engine/install/ubuntu/) for more details):
+
+1. Add Docker's official GPG key:
+
+   ```shell
+   sudo apt-get update
+   sudo apt-get install ca-certificates curl
+   sudo install -m 0755 -d /etc/apt/keyrings
+   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   sudo chmod a+r /etc/apt/keyrings/docker.asc
+   ```
+
+2. Add the repository to Apt sources:
+
+   ```shell
+   echo \
+     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+     $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   sudo apt-get update
+   ```
+
+3. Install specific version
+
+   ```shell
+   VERSION_STRING=5:25.0.4-1~ubuntu.20.04~focal
+   sudo apt-get install -y docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
+
+4. Manage Docker as a non-root user
+
+   ```shell
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   newgrp docker
+   ```
+
+### Using VS Code Dev Container
+
+Related VS Code extensions - run the following command to install all those directly:
+
+```shell
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode.remote-explorer
+code --install-extension ms-vscode.remote-server
+```
 
 ## Usage
 
@@ -98,8 +154,14 @@ This demonstration is created based on Ubuntu 20.04.
 
 ## References
 
+- Youtube videos in the [Docker for Robotics](https://youtube.com/playlist?list=PLunhqkrRNRhaqt0UfFxxC_oj7jscss2qe&si=DJsoV8bdb9sBNla1) playlist, particularly:
+  - [Docker for Robotics Pt 1 - What and Why??](https://youtu.be/XcJzOYe3E6M?si=RBG0st91x6W4ZwqQ)
+  - [Docker 101](https://youtu.be/SAMPOK_lazw?si=C21XBgWSUklJrF7V)
+  - [Crafting your Dockerfile (Docker and Robotics Pt 3)](https://youtu.be/RbP5cARP-SM?si=2b9hBJycudqfRRVO)
+  - [If you're not developing with this, you're wasting your time](https://youtu.be/dihfA7Ol6Mw?si=ycL2EEmm_EIIJGLh)
 - [Luis Sena. 17 May 2021. Creating the Perfect Python Dockerfile. Medium.](https://luis-sena.medium.com/creating-the-perfect-python-dockerfile-51bdec41f1c8)
 - [David Elvis. March 20, 2023. How to Install Tensorflow on the GPU with Docker. Saturn Cloud.](https://saturncloud.io/blog/how-to-install-tensorflow-on-the-gpu-with-docker/)
 - Github repo [psaboia/devcontainer-nvidia-base](https://github.com/psaboia/devcontainer-nvidia-base)
 - Issue [#1735](https://github.com/NVIDIA/nvidia-docker/issues/1735) of github repo [NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 - [Itamar Turner-Trauring. Oct 1, 2021. Elegantly activating a virtualenv in a Dockerfile. Python⇒Speed.](https://pythonspeed.com/articles/activate-virtualenv-dockerfile/)
+- [28 Feb, 2024. Change the default source code mount. Visual Studio Code.](https://code.visualstudio.com/remote/advancedcontainers/change-default-source-mount)
