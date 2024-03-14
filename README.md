@@ -1,4 +1,4 @@
-# tensorflow-gpu-container
+# tensorflow-gpu-container-demo
 
 ## Introduction
 
