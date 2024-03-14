@@ -83,7 +83,7 @@ This demonstration is created based on Ubuntu 20.04.
 
 ## Troubleshooting
 
-### Check if in virtual environment
+### Check if inside virtual environment
 
     Inside the container, run the following command:
 
@@ -102,3 +102,4 @@ This demonstration is created based on Ubuntu 20.04.
 - [David Elvis. March 20, 2023. How to Install Tensorflow on the GPU with Docker. Saturn Cloud.](https://saturncloud.io/blog/how-to-install-tensorflow-on-the-gpu-with-docker/)
 - Github repo [psaboia/devcontainer-nvidia-base](https://github.com/psaboia/devcontainer-nvidia-base)
 - Issue [#1735](https://github.com/NVIDIA/nvidia-docker/issues/1735) of github repo [NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+- [Itamar Turner-Trauring. Oct 1, 2021. Elegantly activating a virtualenv in a Dockerfile. Python⇒Speed.](https://pythonspeed.com/articles/activate-virtualenv-dockerfile/)
