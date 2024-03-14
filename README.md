@@ -76,7 +76,7 @@ Docker engine - example of installation commands using Apt (refer to [this](http
 
 ### Using VS Code Dev Container
 
-Related VS Code extensions - run the following command to install all those directly:
+Related VS Code extensions (basically Docker and Remote Development) - run the following command to install all those directly:
 
 ```shell
 code --install-extension ms-azuretools.vscode-docker
