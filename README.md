@@ -33,6 +33,13 @@ This demonstration is created based on Ubuntu 20.04 with NVIDIA® GPU, but the m
    sudo apt-get install -y nvidia-container-toolkit
    ```
 
+   Remember to configure the container runtime:
+
+   ```shell
+   sudo nvidia-ctk runtime configure --runtime=docker
+   sudo systemctl restart docker
+   ```
+
 In addition, based on which method you adopt, install the following:
 
 #### Using Docker
@@ -141,11 +148,11 @@ code --install-extension ms-vscode.remote-server
 
 ### Check if inside virtual environment
 
-    Inside the container, run the following command:
+Inside the container, run the following command:
 
-    ```shell
-    ./workspace/check-venv.sh
-    ```
+```shell
+./workspace/check-venv.sh
+```
 
 ## Issues and Contributing
 
