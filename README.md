@@ -115,7 +115,7 @@ code --install-extension ms-vscode.remote-server
 3. Run the container:
 
    ```shell
-   docker run -it --user myuser --network=host --ipc=host --rm --runtime=nvidia --gpus all my_image_name bash
+   docker run -it -v $PWD:/workspace --user myuser --network=host --ipc=host --rm --runtime=nvidia --gpus all my_image_name bash
    ```
 
    Inside the container, go to the workspace directory and run the python script:

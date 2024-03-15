@@ -57,11 +57,3 @@ CMD ["bash"]
 
 # Better to end with root
 USER root
-
-# ===============================
-# Commands:
-# to build an image
-# $ docker image build --no-cache -t my_image_name . &> build.log
-
-# to run a container
-# $ docker run -it --user myuser --network=host --ipc=host --rm --runtime=nvidia --gpus all my_image_name bash
