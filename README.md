@@ -144,6 +144,8 @@ code --install-extension ms-vscode.remote-server
 
    You should see `Num GPUs Available: 1` in the last line of the output.
 
+6. To work on the Python scripts, you may need to set the interpreter path as `/opt/venv/bin/python`.
+
 ## Troubleshooting
 
 ### Check if inside virtual environment
